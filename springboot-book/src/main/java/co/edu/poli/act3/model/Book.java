@@ -14,7 +14,7 @@ public class Book {
 	@Id
 	@Column(name="ID")
 	//auto_increment
-	//@GeneratedValue(strategy = GenerationType.AUTO)	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int isbn;
 	
 	@Column(name="NAME")
