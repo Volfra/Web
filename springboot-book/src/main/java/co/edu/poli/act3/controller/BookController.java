@@ -34,8 +34,8 @@ public class BookController {
 
 	@GetMapping("/books/{id}")
 	public Book getBookById(@PathVariable Integer id) { 
-		Book employee =  bookRepository.findById(id).get();
-		return employee;
+		Book book =  bookRepository.findById(id).get();
+		return book;
 	}
 	
 	@PostMapping("/books")
