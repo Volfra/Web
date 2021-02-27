@@ -20,65 +20,76 @@ import co.edu.poli.act3.repository.BookRepository;
 @RestController // Defines that this class is a spring bean
 @RequestMapping("/api/v1/")
 public class BookController {
-	
-	
+
 	// Tells the application context to inject an instance of BookRespository here
 	@Autowired
 	private BookRepository bookRepository;
-	
-	@GetMapping("/books")
+		
+	/*
+	 * @Autowired 
+	 * public BookController(BookRepository BookRepository) {
+	 * 	super(); 
+	 * 	this.BookRepository = BookRepository; 
+	 * }
+	 */
+
+	@GetMapping("/Books")
 	public List<Book> getAllBooks() {
 		// The BookRepository is already injected and you can use it
 		return bookRepository.findAll();
 	}
-
-	@GetMapping("/books/{id}")
-	public Book getBookById(@PathVariable Integer id) { 
-		Book book =  bookRepository.findById(id).get();
-		return book;
+	
+	@GetMapping("/Books/{id}")
+	public Book getBookById(@PathVariable Long id) { 
+		Book Book =  bookRepository.findById(id).get();
+		return Book;
 	}
 	
-	@PostMapping("/books")
-	public Book createBoook(@RequestBody Book employee) {
-		return bookRepository.save(employee);
+	@PostMapping("/Books")
+	public Book createBook(@RequestBody Book Book) {
+		return bookRepository.save(Book);
 	}
+	
+	@PutMapping("/Books/{id}")
+	public Book updateBook(@PathVariable Long id, @RequestBody Book BookNew) {
+		Book Book = bookRepository.findById(id).get();
 
-	@PutMapping("/books/{id}")
-	public Book updateBook(@PathVariable Integer id, @RequestBody Book bookNew) {
-		Book bookdb = bookRepository.findById(id).get();
-
-		bookdb.setIsbn(bookNew.getIsbn());
-		bookdb.setName(bookNew.getName());
-		bookdb.setAuthor(bookNew.getAuthor());
+		Book.setAuthor(BookNew.getAuthor());
+		Book.setCountry(BookNew.getCountry());
+		Book.setImageLink(BookNew.getImageLink());
+		Book.setLanguage(BookNew.getLanguage());
+		Book.setLink(BookNew.getLink());
+		Book.setPages(BookNew.getPages());
+		Book.setTitle(BookNew.getTitle());
+		Book.setYear(BookNew.getYear());
+		Book.setCd(BookNew.getCd());
+		Book.setEditorial(BookNew.getEditorial());
 		
-		bookRepository.save(bookdb);
-		return bookdb;
+		bookRepository.save(Book);
+		return Book;
 	}
 	
-	@DeleteMapping("/books/{id}")
-	public Book deleteBook(@PathVariable Integer id) {
-		Book bookdb = bookRepository.findById(id).get();
+	@DeleteMapping("/Books/{id}")
+	public Book deleteBook(@PathVariable Long id) {
+		Book Book = bookRepository.findById(id).get();
 		bookRepository.deleteById(id);
-		return bookdb;
+		return Book;
 	}
 	
 	//Query
-	@GetMapping("/bookss/{s}")
-	public List<Book> getfindByAuthor(@PathVariable String s) {
-		return bookRepository.findByAuthor(s);
+	@GetMapping("/Bookss/{s}")
+	public List<Book> getfindByCountry(@PathVariable String s) {
+		return bookRepository.findByLanguage(s);
 	}
-
 	
 	//Load List of Books
-	@PostMapping("/booksL")
-	public String createEmployeeList(@RequestBody BookList books) {
+	@PostMapping("/BooksL")
+	public String createBookList(@RequestBody BookList books) {
 		
 		for (Iterator<Book> iterator = books.getBooks().iterator(); iterator.hasNext();) {
 			bookRepository.save(iterator.next());
 		}
 		
 		return "done";
-	}
-	
-	
+	}	
 }
