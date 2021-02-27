@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import co.edu.poli.act3.model.CD;
 
 @Repository
-public interface CDRepository extends JpaRepository<CD, Long> {
+public interface CDRepository extends JpaRepository<CD, String> {
 	
 	
 }
