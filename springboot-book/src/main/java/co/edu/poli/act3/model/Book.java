@@ -51,7 +51,7 @@ public class Book{
 	@JoinColumn(name="CD_ID")
 	private CD cd;
 	
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "EDITORIAL_ID")
     @JsonIgnore
     private Editorial editorial;

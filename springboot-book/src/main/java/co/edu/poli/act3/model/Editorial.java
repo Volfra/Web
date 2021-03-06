@@ -2,6 +2,7 @@ package co.edu.poli.act3.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Editorial {
 	@Column(name="Address")
 	private String address;
 
-	@OneToMany(mappedBy = "editorial")
+	@OneToMany(mappedBy = "editorial",cascade = CascadeType.ALL)
     private Set<Book> books;
 	
 	public Editorial () {
