@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.mongodb.model.Customer;
 import co.edu.poli.mongodb.repository.CustomerRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 
+@Api(tags = {"Class: CustomerController"}) //tag defined in SwaggerConfig.java
 @RestController // Defines that this class is a spring bean
 @RequestMapping("/api/v1/")
 public class CustomerController {
@@ -23,6 +28,8 @@ public class CustomerController {
 	CustomerRepository customerRepository;
 	
 	@GetMapping("/Customers")
+	@ApiOperation(value = "*** Service Method Get All Customers ***", notes = "*** Get All Customers from MongoDB\\\\WebApp ***")
+	@ApiResponses(value = {@ApiResponse(code = 404, message = "*** Error Get All Customers!!! ***")})
 	public List<Customer> getAllCustomers(){
 		return customerRepository.findAll();
 	}
