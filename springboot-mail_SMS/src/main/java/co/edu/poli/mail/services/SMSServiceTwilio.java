@@ -11,8 +11,8 @@ import co.edu.poli.mail.model.SMS;
 public class SMSServiceTwilio implements SMSService{
 	
     // Find your Account Sid and Token at twilio.com/console
-    public static final String ACCOUNT_SID = "ACf860fd39e3378551c64cca96740f216d";
-    public static final String AUTH_TOKEN = "54b55f1763c81905bbc03d57df4c2978";
+    public static final String ACCOUNT_SID = "**********************";
+    public static final String AUTH_TOKEN = "***********************";
 
     @Override
     public Message sendSMS(SMS sms) {
