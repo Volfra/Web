@@ -5,8 +5,6 @@ import java.util.List;
  
 public class Mail {
  
-    private String mailFrom;
- 
     private String mailTo;
  
     private String mailCc;
@@ -49,14 +47,6 @@ public class Mail {
         this.mailCc = mailCc;
     }
  
-    public String getMailFrom() {
-        return mailFrom;
-    }
- 
-    public void setMailFrom(String mailFrom) {
-        this.mailFrom = mailFrom;
-    }
- 
     public String getMailSubject() {
         return mailSubject;
     }
@@ -92,12 +82,5 @@ public class Mail {
     public void setAttachments(List < Object > attachments) {
         this.attachments = attachments;
     }
-
-	@Override
-	public String toString() {
-		return "Mail [mailFrom=" + mailFrom + ", mailTo=" + mailTo + ", mailCc=" + mailCc + ", mailBcc=" + mailBcc
-				+ ", mailSubject=" + mailSubject + ", mailContent=" + mailContent + ", contentType=" + contentType
-				+ ", attachments=" + attachments + "]";
-	}
  
 }
