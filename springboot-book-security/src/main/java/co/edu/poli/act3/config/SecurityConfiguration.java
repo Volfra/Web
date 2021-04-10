@@ -21,16 +21,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
+		
 		// Providers
 		//auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 		auth.userDetailsService(userDetailsService);
-		/*
-		 auth.inMemoryAuthentication() 
-		 	.withUser("Admin") 
+		auth.inMemoryAuthentication() 
+		 	.withUser("root") 
 		 	.password("{noop}123") //{noop} plain text 
 		 	.roles("ADMIN");
-		 */
+		
 	}
 
 	@Override
@@ -41,8 +40,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
 			.anyRequest().authenticated() //For any other request, you do not need a specific role but still need to be authenticated.
 			.and()
-			.httpBasic(); //authentication method
-			//.formLogin(); //authentication method
+			//.httpBasic(); //authentication method
+			.formLogin(); //authentication method
 
 	}
 
