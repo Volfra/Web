@@ -23,8 +23,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		// Providers
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-		//auth.userDetailsService(userDetailsService);
+		//auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailsService);
 		/*
 		 auth.inMemoryAuthentication() 
 		 	.withUser("Admin") 
@@ -38,24 +38,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf().disable() //Cross-Site Request Forgery (falsificación de petición en sitios cruzados)
 			.authorizeRequests()
 			.antMatchers("/api/v1/books").hasAnyRole("ADMIN", "USER")
-			.antMatchers("/api/v1/bookss").hasRole("ADMIN")
-			.anyRequest().authenticated()
+			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
+			.anyRequest().authenticated() //For any other request, you do not need a specific role but still need to be authenticated.
 			.and()
-			.httpBasic();
-			//.formLogin();
+			.httpBasic(); //authentication method
+			//.formLogin(); //authentication method
 
 	}
 
-	/*
+	
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-	*/
 	
+	/*
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}
+	*/
 }
