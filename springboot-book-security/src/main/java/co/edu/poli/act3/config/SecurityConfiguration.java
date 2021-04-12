@@ -18,16 +18,33 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		// Providers
-		//auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+		//first case memory users
+		/*
+		auth.inMemoryAuthentication() 
+	 		.withUser("wilson") 
+	 		.password("{noop}123456") //{noop} plain text comment method noPasswordEncoder
+	 		.roles("ADMIN");
+		*/
+		
+		//second case memory and database users without encryption
+		/*
 		auth.userDetailsService(userDetailsService);
 		auth.inMemoryAuthentication() 
-		 	.withUser("root") 
-		 	.password("{noop}123") //{noop} plain text 
+	 		.withUser("wilson") 
+	 		.password("123456") //using method noPasswordEncoder
+	 		.roles("ADMIN");
+		*/
+		
+		//third case memory and database users with encryption
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+		auth.inMemoryAuthentication() 
+		 	.withUser("wilson") 
+		 	.password("$2a$10$l.Rxc0VECmpHjinzxMG/wunvebywkRtSwIkSk./Th0ip2k6quv92i") //using method passwordEncoder
 		 	.roles("ADMIN");
 		
 	}
@@ -40,22 +57,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
 			.anyRequest().authenticated() //For any other request, you do not need a specific role but still need to be authenticated.
 			.and()
-			//.httpBasic(); //authentication method
+			.httpBasic() //authentication method
+			.and()
 			.formLogin(); //authentication method
 
 	}
 
-	
+	/*
 	@Bean
-	public PasswordEncoder getPasswordEncoder() {
+	public PasswordEncoder noPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
+	*/
 	
-	/*
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}
-	*/
+	
 }
