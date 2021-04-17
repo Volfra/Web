@@ -57,8 +57,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
 			.anyRequest().authenticated() //For any other request, you do not need a specific role but still need to be authenticated.
 			.and()
-			.httpBasic() //authentication method
-			.and()
 			.formLogin() //authentication method
 			.and()
 			.logout(); //http://localhost:8080/login?logout
