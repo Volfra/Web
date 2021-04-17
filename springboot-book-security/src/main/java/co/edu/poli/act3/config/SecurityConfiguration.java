@@ -59,8 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and()
 			.httpBasic() //authentication method
 			.and()
-			.formLogin(); //authentication method
-
+			.formLogin() //authentication method
+			.and()
+			.logout(); //http://localhost:8080/login?logout
 	}
 
 	/*
