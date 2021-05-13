@@ -1,1 +1,1 @@
-# Web - BackEnd (SpringBoot) and FrontEnd (Angular)
+# Web - BackEnd (SpringBoot)
