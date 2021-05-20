@@ -1,3 +1,4 @@
+
 package co.edu.poli.act3.service;
 
 import java.util.Arrays;
@@ -14,23 +15,23 @@ import co.edu.poli.act3.model.User;
 public class UserDetailsImpl implements UserDetails {
 
 	private String userName;
-	
+
 	private String password;
-	
+
 	private boolean isActive;
-	
+
 	private List<GrantedAuthority> authorities;
 
 	public UserDetailsImpl(User user) {
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
 		this.isActive = user.isActive();
-		this.authorities = Arrays.stream(user.getRoles().split(","))
-				.map(SimpleGrantedAuthority::new)
+		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
 	}
 
-	public UserDetailsImpl() {}
+	public UserDetailsImpl() {
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

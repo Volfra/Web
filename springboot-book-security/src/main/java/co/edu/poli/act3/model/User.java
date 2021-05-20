@@ -1,3 +1,4 @@
+
 package co.edu.poli.act3.model;
 
 import javax.persistence.Entity;
@@ -11,15 +12,16 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	private String userName;
-	
+
 	private String password;
-	
+
 	private boolean active;
-	
+
 	private String roles;
 
 	public String getUserName() {
