@@ -26,7 +26,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Providers //first case memory users
 		auth.inMemoryAuthentication() 
 			.withUser("wilson") 
-			.password("{noop}123456")//{noop} plain text comment method noPasswordEncoder .roles("ADMIN");
+			.password("{noop}123456")//{noop} plain text comment method noPasswordEncoder 
+			.roles("ADMIN");
   		*/
 		/*
 		//second case memory and database users without encryption
