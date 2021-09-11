@@ -50,6 +50,7 @@ public class AutoController {
 		autodb.setMarca(autoNew.getMarca());
 		autodb.setModelo(autoNew.getModelo());
 		autodb.setDuenio(autoNew.getDuenio());
+		autodb.setFabricante(autoNew.getFabricante());
 
 		autoRepository.save(autodb);
 		return autodb;
