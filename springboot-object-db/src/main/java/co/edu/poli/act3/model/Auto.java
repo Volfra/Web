@@ -3,6 +3,9 @@ package co.edu.poli.act3.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,13 +25,19 @@ public class Auto {
 	@Column(name="model")
 	private int modelo;
 	
-	private String duenio;
+	@OneToOne
+	@JoinColumn(name="duenio_id")
+	private Duenio duenio;
+	
+	@ManyToOne
+	@JoinColumn(name="fabricante_id")
+	private Fabricante fabricante;
 
 	public Auto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Auto(String placa, String marca, int modelo, String duenio) {
+	public Auto(String placa, String marca, int modelo, Duenio duenio) {
 		super();
 		this.placa = placa;
 		this.marca = marca;
@@ -60,12 +69,20 @@ public class Auto {
 		this.modelo = modelo;
 	}
 
-	public String getDuenio() {
+	public Duenio getDuenio() {
 		return duenio;
 	}
 
-	public void setDuenio(String duenio) {
+	public void setDuenio(Duenio duenio) {
 		this.duenio = duenio;
+	}
+
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
 	}
 
 }
