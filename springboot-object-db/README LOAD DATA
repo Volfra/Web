@@ -1,0 +1,40 @@
+Example OneToOne and OneToMany/ManyToOne
+
+1. Load info about Duenios.
+2. Load info about Fabricantes.
+3. Load info about Autos (service /AutosL).
+
+Example:
+
+[
+    {
+        "placa": "DTF564",
+        "marca": "Renault",
+        "modelo": 2020,
+        "duenio": {
+            "id": "9898",
+            "nombre": "Lisa Simpson",
+            "genero": "F"
+        },
+        "fabricante": {
+            "nit": "321332",
+            "nombre": "Peugeot",
+            "pais": "france"
+        }
+    },
+    {
+        "placa": "FRS213",
+        "marca": "Renault",
+        "modelo": 2018,
+        "duenio": {
+            "id": "123456",
+            "nombre": "Bart Simpson",
+            "genero": "M"
+        },
+        "fabricante": {
+            "nit": "321332",
+            "nombre": "Peugeot",
+            "pais": "france"
+        }
+    }
+]
