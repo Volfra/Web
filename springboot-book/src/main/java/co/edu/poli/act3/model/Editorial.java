@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="editorial")
+@Table(name="editorials")
 public class Editorial {
 	
 	//Primary key
