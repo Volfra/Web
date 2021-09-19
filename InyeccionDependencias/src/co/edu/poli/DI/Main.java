@@ -13,7 +13,7 @@ public class Main {
     	
         Cliente2 cliente = new Cliente2();
         cliente.setAbono(320);
-        cliente.setDiaPago(7); //1 Domingo, 2 Lunes, 3 Martes, etc.
+        cliente.setDiaPago(6); //1 Domingo, 2 Lunes, 3 Martes, etc.
         cliente.setMedioContacto(MedioContacto.SMS);
         cliente.setEmail("molder.itp@gmail.com");
         cliente.setTwitter("@windoctor");
