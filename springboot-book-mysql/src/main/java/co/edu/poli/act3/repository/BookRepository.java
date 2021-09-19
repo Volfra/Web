@@ -10,6 +10,6 @@ import co.edu.poli.act3.model.Book;
 public interface BookRepository extends JpaRepository<Book, Long>{
 	
 	@Query ("FROM Book WHERE author = ?1")
-	List<Book> findByAuthor (String aut);
+	List<Book> findByAuthor (String s);
 	
 }
