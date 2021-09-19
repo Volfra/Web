@@ -11,7 +11,7 @@ import co.edu.poli.first.model.Book;
 @RequestMapping("/msgs")
 public class HelloRest {
 	
-	@GetMapping("/hello")
+	@GetMapping("/hellos")
 	public String reqHello() {
 		return "Hello World";
 	}
