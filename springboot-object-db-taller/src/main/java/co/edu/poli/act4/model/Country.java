@@ -27,7 +27,7 @@ public class Country {
 	@ManyToMany (mappedBy = "countries")
 	@JsonIgnore
 	private List<Agreement> agreement;
-	
+
 	public Country() {
 		// TODO Auto-generated constructor stub
 	}
@@ -62,6 +62,12 @@ public class Country {
 	}
 	public void setCoordinate(ArrayList<Double> coordinate) {
 		this.coordinate = coordinate;
+	}
+	public List<Agreement> getAgreement() {
+		return agreement;
+	}
+	public void setAgreement(List<Agreement> agreement) {
+		this.agreement = agreement;
 	}
 
 }

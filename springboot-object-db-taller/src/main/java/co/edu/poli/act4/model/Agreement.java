@@ -24,7 +24,7 @@ public class Agreement {
 				joinColumns = { @JoinColumn(name = "Agreement_id")  }, 
 				inverseJoinColumns = {@JoinColumn (name = "Country_code") })
 	private List<Country> countries;
-	
+
 	public Agreement() {
 		// TODO Auto-generated constructor stub
 	}
@@ -53,5 +53,10 @@ public class Agreement {
 	public void setObs(String obs) {
 		this.obs = obs;
 	}
-
+	public List<Country> getCountries() {
+		return countries;
+	}
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
+	}
 }
