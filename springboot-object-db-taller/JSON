@@ -1,0 +1,99 @@
+*******
+POST
+localhost:8080/api/v1/countriesL
+*******
+
+[
+        {
+            "code": "CO",
+            "name": "COLOMBIA",
+            "denomAlt": [
+                "CO",
+                "colombia"
+            ],
+            "coordinate": [
+                53.2,
+                82.3
+            ]
+        },
+        {
+            "code": "AL",
+            "name": "ALEMANIA",
+            "denomAlt": [
+                "AL",
+                "alemania"
+            ],
+            "coordinate": [
+                33.2,
+                32.3
+            ]
+        }
+    ]
+    
+    
+*******
+POST
+localhost:8080/api/v1/agreements
+*******
+
+
+{
+    "id": 1,
+    "date": "2020-01-01T23:28:56.782Z",
+    "obs": "Primer tratado",
+    "countries": [
+        {
+            "code": "AL",
+            "name": "ALEMANIA",
+            "denomAlt": [
+                "AL",
+                "alemania"
+            ],
+            "coordinate": [
+                33.2,
+                32.3
+            ]
+        }
+    ]
+}
+
+*******
+POST
+localhost:8080/api/v1/agreements
+*******
+
+
+{
+    "id": 2,
+    "date": "2021-01-01T23:28:56.782Z",
+    "obs": "Segundo tratado",
+    "countries": [
+        {
+            "code": "CO",
+            "name": "COLOMBIA",
+            "denomAlt": [
+                "CO",
+                "colombia"
+            ],
+            "coordinate": [
+                53.2,
+                82.3
+            ]
+        },
+        {
+            "code": "AL",
+            "name": "ALEMANIA",
+            "denomAlt": [
+                "AL",
+                "alemania"
+            ],
+            "coordinate": [
+                33.2,
+                32.3
+            ]
+        }
+    ]
+}
+
+
+
