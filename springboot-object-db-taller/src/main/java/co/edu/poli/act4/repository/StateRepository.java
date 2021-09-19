@@ -17,7 +17,7 @@ public interface StateRepository extends JpaRepository<State, String>{
 
 	//SQL native
 	@Query(value="SELECT state FROM states WHERE population BETWEEN ?1 AND ?2", nativeQuery = true)
-	List<String> findByPopulation(int b, int e);
+	List<String> findByPopulation(int a, int b);
 
 	//SQL native
 	@Query(value="SELECT state, nickname, admission_number FROM states WHERE capital_city LIKE ?1%", nativeQuery = true)
