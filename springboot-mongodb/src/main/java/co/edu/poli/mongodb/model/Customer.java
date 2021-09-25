@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "Customers")
 public class Customer {
 	
-	@Id
+	//@Id
 	private String customerId;
 	
 	private String firstname;
@@ -32,13 +32,17 @@ public class Customer {
 		
 	}
 
-	public Customer(String customerId, String firstname, String lastname, Integer age, String address, Double salary) {
+	public Customer(String customerId, String firstname, String lastname, Integer age, String address, Double salary,
+			Map<String, String> mediosPago, List<Compras> listaCompras) {
+		super();
 		this.customerId = customerId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
 		this.address = address;
 		this.salary = salary;
+		this.mediosPago = mediosPago;
+		this.listaCompras = listaCompras;
 	}
 
 	public String getCustomerId() {

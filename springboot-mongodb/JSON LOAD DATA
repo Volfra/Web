@@ -1,0 +1,65 @@
+-- JSON --
+
+[
+    {
+        "customerId": "123",
+        "firstname": "W",
+        "lastname": "S",
+        "age": 33,
+        "address": "here",
+        "salary": 320000,
+        "mediosPago": {
+            "debito": "davivienda",
+            "credito": "bancolombia"
+        }
+    },
+    {
+        "customerId": "345",
+        "firstname": "P",
+        "lastname": "S",
+        "age": 45,
+        "address": "there",
+        "salary": 200000,
+        "mediosPago": {
+            "debito": "davivienda",
+            "credito": "bancolombia"
+        },
+        "listaCompras": [
+            {
+                "id": 1,
+                "fecha": "2021-24-09",
+                "total": 500000
+            },
+            {
+                "id": 2,
+                "fecha": "2020-04-10",
+                "total": 344000
+            },
+            {
+                "id": 3,
+                "fecha": "2021-02-07",
+                "total": 80000
+            }
+        ]
+    },
+    {
+        "customerId": "678",
+        "firstname": "X",
+        "lastname": "X",
+        "age": 23,
+        "salary": 200000,
+        "mediosPago": {
+            "debito": "bancolombia"
+        },
+        "listaCompras": [
+            {
+                "id": 1,
+                "fecha": "2020-12-12",
+                "total": 800000
+            }
+        ]
+    }
+]
+
+--SWAGGER--
+http://localhost:8080/swagger-ui.html#/

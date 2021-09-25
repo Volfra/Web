@@ -60,6 +60,7 @@ public class CustomerController {
 		_customer.setAge(customer.getAge());
 		_customer.setSalary(customer.getSalary());
 		_customer.setMediosPago(customer.getMediosPago());
+		_customer.setListaCompras(customer.getListaCompras());
 		
 		customerRepository.save(_customer);
 		
@@ -100,6 +101,12 @@ public class CustomerController {
 	@GetMapping("/CustomersQ4")
 	public List<Customer> findCustomers4(){
 		return customerRepository.findCustomersQ4();
+	}
+
+	//Query
+	@GetMapping("/CustomersQ5")
+	public List<Customer> findCustomers5(){
+		return customerRepository.findCustomersQ5();
 	}
 	
 }

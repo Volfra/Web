@@ -12,7 +12,7 @@ public interface CustomerRepository extends MongoRepository<Customer, String>{
 	@Query("{ 'lastname' : /.*?0.*/ }")
 	List<Customer> findCustomersQ1(String name);
 	
-	@Query("{ 'listaCompras.total' : { $gt: 60000, $lt: 200000 } }")
+	@Query("{ 'listaCompras.total' : { $gt: 60000, $lt: 200000 } }") 
 	List<Customer> findCustomersQ2();
 	
 	@Query("{ mediosPago : {debito : 'davivienda', credito : 'bancolombia'}}")
@@ -20,5 +20,8 @@ public interface CustomerRepository extends MongoRepository<Customer, String>{
 	
 	@Query("{ 'mediosPago.debito' : 'davivienda' }")
 	List<Customer> findCustomersQ4();
+
+	@Query(value="{ 'mediosPago.debito' : 'davivienda' }", fields="{'listaCompras' : 1, '_id' : 0}")
+	List<Customer> findCustomersQ5();
 	
 }
