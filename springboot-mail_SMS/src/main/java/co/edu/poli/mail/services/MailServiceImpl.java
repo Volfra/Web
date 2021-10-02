@@ -1,7 +1,7 @@
 package co.edu.poli.mail.services;
 
 import java.io.File;
-import java.util.Iterator;
+
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -38,7 +38,11 @@ public class MailServiceImpl implements MailService {
             mimeMessageHelper.setText(mail.getMailContent());
             
             if (mail.getAttachments()!=null)
-            	//Iterator on List of files paths
+                for (Object attachment: mail.getAttachments()) {
+                	File f = new File(attachment.toString());
+                    FileSystemResource file = new FileSystemResource(f);
+                    mimeMessageHelper.addAttachment(f.getName(), file);
+                }
             	
             mailSender.send(mimeMessageHelper.getMimeMessage());
             

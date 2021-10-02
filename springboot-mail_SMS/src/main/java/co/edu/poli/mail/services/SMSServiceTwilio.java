@@ -11,15 +11,15 @@ import co.edu.poli.mail.model.SMS;
 public class SMSServiceTwilio implements SMSService{
 	
     // Find your Account Sid and Token at twilio.com/console
-    public static final String ACCOUNT_SID = "**********************";
-    public static final String AUTH_TOKEN = "***********************";
+    public static final String ACCOUNT_SID = "*********";
+    public static final String AUTH_TOKEN = "*********";
 
     @Override
     public Message sendSMS(SMS sms) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber(sms.getPhoneNumberTo()),
-                new com.twilio.type.PhoneNumber("+14159917390"),//The Twilio phone number
+                new com.twilio.type.PhoneNumber("+18144028960"),//The Twilio phone number
                 sms.getBody())
            .create();
 
