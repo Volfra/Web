@@ -1,6 +1,5 @@
 package co.edu.poli.act3.controller;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.act3.model.Book;
-import co.edu.poli.act3.model.BookList;
 import co.edu.poli.act3.repository.BookRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -73,12 +71,8 @@ public class BookController {
 	
 	//Load List of Books
 	@PostMapping("/booksL")
-	public String createEmployeeList(@RequestBody BookList books) {
-		
-		for (Iterator<Book> iterator = books.getBooks().iterator(); iterator.hasNext();) {
-			bookRepository.save(iterator.next());
-		}
-		
+	public String createEmployeeList(@RequestBody List<Book> books) {
+			bookRepository.saveAll(books);
 		return "done";
 	}
 	

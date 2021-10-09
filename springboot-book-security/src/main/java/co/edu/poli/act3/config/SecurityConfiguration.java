@@ -22,28 +22,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
+		/* Providers */ 
+		//first case memory users only without encryption
 		/*
-		// Providers //first case memory users
 		auth.inMemoryAuthentication() 
 			.withUser("wilson") 
-			.password("{noop}123456")//{noop} plain text comment method noPasswordEncoder 
+			.password("{noop}123456")//{noop} plain text comment methods noPasswordEncoder/passwordEncoder
 			.roles("ADMIN");
   		*/
+		
+		//second case database users and memory without encryption
 		/*
-		//second case memory and database users without encryption
-		auth.userDetailsService(userDetailsService); 
+ 		auth.userDetailsService(userDetailsService); 
+ 		
 		auth.inMemoryAuthentication()
 			.withUser("wilson") 
 			.password("123456") //using method noPasswordEncoder
 			.roles("ADMIN");
   		*/
  
-		//third case memory and database users with encryption
+		//third case database users and memory with encryption
+  		
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder()); 
+		
 		auth.inMemoryAuthentication() 
 			.withUser("wilson")
 			.password("$2a$10$l.Rxc0VECmpHjinzxMG/wunvebywkRtSwIkSk./Th0ip2k6quv92i") //using method passwordEncoder 
 			.roles("ADMIN");
+		
   
   }
 
@@ -69,6 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return NoOpPasswordEncoder.getInstance();
 	}
 	*/
+	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {

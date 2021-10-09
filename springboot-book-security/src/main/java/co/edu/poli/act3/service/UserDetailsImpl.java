@@ -18,14 +18,14 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String password;
 
-	private boolean isActive;
+	private boolean active;
 
 	private List<GrantedAuthority> authorities;
 
 	public UserDetailsImpl(User user) {
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
-		this.isActive = user.isActive();
+		this.active = user.isActive();
 		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
 	}
@@ -65,7 +65,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return isActive;
+		return active;
 	}
 
 }
