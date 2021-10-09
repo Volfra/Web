@@ -60,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/api/v1/books").hasAnyRole("ADMIN", "USER")
 			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
-			.anyRequest().authenticated() //For any other request, you do not need aspecific role but still need to be authenticated. 
+			.anyRequest().authenticated() //For any other request, you do not need specific role but still need to be authenticated. 
 			.and() 
 			.formLogin()//authentication method 
 			.and() 

@@ -14,6 +14,8 @@ import co.edu.poli.act3.model.User;
 
 public class UserDetailsImpl implements UserDetails {
 
+	private static final long serialVersionUID = -6855979919718350058L;
+
 	private String userName;
 
 	private String password;
