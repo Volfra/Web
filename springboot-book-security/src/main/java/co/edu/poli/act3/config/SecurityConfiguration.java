@@ -4,6 +4,7 @@ package co.edu.poli.act3.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -60,6 +61,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/api/v1/books").hasAnyRole("ADMIN", "USER")
 			.antMatchers("/api/v1/bookss/**").hasRole("ADMIN")
+			//auth with HTTP Methods
+			/*
+			.antMatchers(HttpMethod.GET, "/api/v1/books/**").hasRole("ADMIN")
+			.antMatchers(HttpMethod.GET, "/api/v1/books/**").hasRole("USER")
+			.antMatchers(HttpMethod.POST, "/api/v1/books/**").hasRole("ADMIN")
+			.antMatchers(HttpMethod.PUT, "/api/v1/books/**").hasRole("ADMIN")
+			.antMatchers(HttpMethod.DELETE, "/api/v1/books/**").hasRole("ADMIN")
+			*/
 			.anyRequest().authenticated() //For any other request, you do not need specific role but still need to be authenticated. 
 			.and() 
 			.formLogin()//authentication method 
