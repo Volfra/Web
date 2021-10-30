@@ -1,9 +1,12 @@
 package co.edu.poli.act3.controller;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.Observable;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.act3.model.Book;
-import co.edu.poli.act3.model.BookList;
 import co.edu.poli.act3.repository.BookRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,9 +37,15 @@ public class BookController {
 	}
 
 	@GetMapping("/books/{id}")
-	public Book getBookById(@PathVariable Long id) { 
-		Book book =  bookRepository.findById(id).get();
-		return book;
+	public ResponseEntity<Book> getBookById(@PathVariable long id) { 
+		
+		if (bookRepository.existsById(id)) {
+			Book book = bookRepository.findById(id).get();
+			return ResponseEntity.status(HttpStatus.OK).body(book);
+		} else {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+
+		}
 	}
 	
 	@PostMapping("/books")
@@ -46,7 +54,7 @@ public class BookController {
 	}
 
 	@PutMapping("/books/{id}")
-	public Book updateBook(@PathVariable Long id, @RequestBody Book bookNew) {
+	public Book updateBook(@PathVariable long id, @RequestBody Book bookNew) {
 		Book bookdb = bookRepository.findById(id).get();
 
 		bookdb.setIsbn(bookNew.getIsbn());
@@ -58,7 +66,7 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/books/{id}")
-	public Book deleteBook(@PathVariable Long id) {
+	public Book deleteBook(@PathVariable long id) {
 		Book bookdb = bookRepository.findById(id).get();
 		bookRepository.delete(bookdb);
 		return bookdb;
@@ -73,12 +81,8 @@ public class BookController {
 	
 	//Load List of Books
 	@PostMapping("/booksL")
-	public String createEmployeeList(@RequestBody BookList books) {
-		
-		for (Iterator<Book> iterator = books.getBooks().iterator(); iterator.hasNext();) {
-			bookRepository.save(iterator.next());
-		}
-		
+	public String createBookList(@RequestBody List<Book> books) {
+		bookRepository.saveAll(books);
 		return "done";
 	}
 	
