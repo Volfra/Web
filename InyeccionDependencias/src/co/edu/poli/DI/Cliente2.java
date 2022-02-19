@@ -19,6 +19,8 @@ public class Cliente2 {
 	public void enviarRecordatorio() {
         Calendar calendar = Calendar.getInstance();
         int dia = calendar.get(Calendar.DAY_OF_WEEK);
+        
+        System.out.println(dia);
 
         if (dia == diaPago && abono >= 300) {
             if(medioContacto == MedioContacto.EMAIL)

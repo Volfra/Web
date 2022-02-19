@@ -16,8 +16,8 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.
 			inMemoryAuthentication().
-			withUser("user").
-			password("{noop}password").
+			withUser("user1").
+			password("{noop}123456").
 			roles("USER");
 	}
 

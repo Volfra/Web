@@ -1,6 +1,7 @@
 package co.edu.poli.act2.controller;
 
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,11 +41,26 @@ public class BookController {
 	
 	@GetMapping("/get")
     public Book getBook(@RequestParam("idBook") int idBook) {
+		
+		for (Iterator iterator = books.iterator(); iterator.hasNext();) {
+			Book book = (Book) iterator.next();
+			if (book.getId() == idBook)
+				return book;
+		}
+		return null;
+		/*
 		if (books.size()>0)
 			return books.get(idBook);
 		else
 			return null;
+		*/
     }
+	
+	@GetMapping("/gets")
+    public List<Book> getBooks() {
+		return books;
+    }
+	
 	
 	@PostMapping("/postall")
 	public List<Book> saveListCustomers(@RequestBody List<Book> Lbooks) {

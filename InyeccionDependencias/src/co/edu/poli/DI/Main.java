@@ -13,15 +13,17 @@ public class Main {
     	
         Cliente2 cliente = new Cliente2();
         cliente.setAbono(320);
-        cliente.setDiaPago(6); //1 Domingo, 2 Lunes, 3 Martes, etc.
-        cliente.setMedioContacto(MedioContacto.SMS);
+        cliente.setDiaPago(7); //1 Domingo, 2 Lunes, 3 Martes, etc.
+        cliente.setMedioContacto(MedioContacto.TWITTER);
         cliente.setEmail("molder.itp@gmail.com");
         cliente.setTwitter("@windoctor");
         cliente.setCelular("0123456789");
 
         //inyectamos el objeto especifico
-        //cliente.setMensaje(new MensajeTwitter());
-        cliente.setMensaje(new MensajeSMS());
+        MensajeTwitter mt = new MensajeTwitter();
+        mt.enviar("xx", "y");
+        cliente.setMensaje(mt);
+        //cliente.setMensaje(new MensajeSMS());
         
         cliente.enviarRecordatorio();
         
