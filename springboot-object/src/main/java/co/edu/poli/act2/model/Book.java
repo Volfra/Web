@@ -2,21 +2,21 @@ package co.edu.poli.act2.model;
 
 public class Book {
 	
-	private int isbn;
+	private String isbn;
 	private String name;
 	private String author;
 	
-	public Book(int isbn, String name, String author) {
+	public Book(String isbn, String name, String author) {
 		super();
 		this.isbn = isbn;
 		this.name = name;
 		this.author = author;
 	}
-	public int getId() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setId(int id) {
-		this.isbn = id;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 	public String getName() {
 		return name;
