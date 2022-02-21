@@ -26,7 +26,7 @@ public class BookController {
 	}
 
 	/* URL
-	 * 127.0.0.1:8080/api/v1/get?idBook=978-607-7773-17-7
+	 127.0.0.1:8080/api/v1/book?idBook=978-607-7773-17-7
 	 */
 	@GetMapping("/book")
 	public Book getBook(@RequestParam("idBook") String idBook) {
@@ -34,7 +34,7 @@ public class BookController {
 	}
 
 	/* URL
-	 * 127.0.0.1:8080/api/v1/gets
+	 127.0.0.1:8080/api/v1/books
 	 */
 	@GetMapping("/books")
 	public HashMap<String,Book> getBooks() {
@@ -42,13 +42,13 @@ public class BookController {
 	}
 
 	/* URL 
-	 * 127.0.0.1:8080/api/v1/post
+	 127.0.0.1:8080/api/v1/book
 	 * JSON
-	 * {
-	 * 		"isbn" : "978-607-7773-17-7",
-	 * 		"name" : "La hojarasca",
-	 * 		"author" : "Gabriel Garcia Marquez"
-	 * }
+	{
+	"isbn" : "978-607-7773-17-7",
+	"name" : "La hojarasca",
+	"author" : "Gabriel Garcia Marquez"
+	}
 	 */
 	@PostMapping("/book")
 	public String postBook(@RequestBody Book book) {
@@ -58,19 +58,18 @@ public class BookController {
 	}
 
 	/* URL 
-	 * 127.0.0.1:8080/api/v1/postall
+	 127.0.0.1:8080/api/v1/bookl
 	 * JSON
-	 * [{
-	 * 		"isbn" : "978-607-7773-17-7",
-	 * 		"name" : "La hojarasca",
-	 * 		"author" : "Gabriel Garcia Marquez"
-	 * },
-	 * {
-	 * 		"isbn" : "978-99961-46-12-1",
-	 * 		"name" : "El principito",
-	 * 		"author" : "Antoine de Saint-Exupéry"
-	 * }
-	 * ]
+	[{
+		"isbn" : "978-607-7773-17-7",
+		"name" : "La hojarasca",
+		"author" : "Gabriel Garcia Marquez"
+	},
+	{
+		"isbn" : "978-99961-46-12-1",
+		"name" : "El principito",
+		"author" : "Antoine de Saint-Exupéry"
+	}]
 	 */
 	@PostMapping("/bookl")
 	public String saveListCustomers(@RequestBody List<Book> Lbooks) {
@@ -81,25 +80,26 @@ public class BookController {
 	}
 
 	/* URL 
-	 * 127.0.0.1:8080/api/v1/book/978-607-7773-17-7
+	 127.0.0.1:8080/api/v1/book/978-607-7773-17-7
 	 * JSON
-	 * {
-	 * 		"isbn" : "978-607-7773-17-7",
-	 * 		"name" : "Cien años de soledad",
-	 * 		"author" : "Gabriel Garcia Marquez"
-	 * }
+	{
+	"isbn" : "978-607-7773-17-7",
+	"name" : "Cien años de soledad",
+	"author" : "Gabriel Garcia Marquez"
+	}
 	 */	
-	@PutMapping("/book/{idBook}")
+	@PutMapping("/book/{isbnBook}")
 	public String putBook(@PathVariable String isbnBook, @RequestBody Book book) {
 		books.replace(isbnBook, book);
 		return "Modified";
 	}
 
 	/* URL 
-	 * 127.0.0.1:8080/api/v1/book/978-607-7773-17-7
+	 127.0.0.1:8080/api/v1/book/978-607-7773-17-7
 	 */
-	@DeleteMapping("/book/{idBook}")
+	@DeleteMapping("/book/{isbnBook}")
 	public String deleteBook(@PathVariable String isbnBook) {
+		System.out.println(isbnBook);
 		try {
 			books.remove(isbnBook);
 		} catch (Exception e) {
