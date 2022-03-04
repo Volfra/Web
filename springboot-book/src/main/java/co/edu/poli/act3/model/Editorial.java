@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="editorials")
 public class Editorial {
@@ -24,7 +26,8 @@ public class Editorial {
 	@Column(name="Address")
 	private String address;
 
-	@OneToMany(mappedBy = "editorial",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "editorial", cascade = CascadeType.ALL)
+	@JsonIgnore
     private Set<Book> books;
 	
 	public Editorial () {

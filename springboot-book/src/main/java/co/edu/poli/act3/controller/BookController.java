@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,9 +47,16 @@ public class BookController {
 		return Book;
 	}
 	
+	//Data JSON
+	//https://github.com/benoitvallon/100-best-books/blob/master/books.json
 	@PostMapping("/Books")
-	public Book createBook(@RequestBody Book Book) {
-		return bookRepository.save(Book);
+	public ResponseEntity<Object> createBook(@RequestBody Book Book) {
+		try { 
+			Book b = bookRepository.save(Book);
+			return ResponseEntity.status(HttpStatus.OK).body(b);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.toString());
+		}
 	}
 	
 	@PutMapping("/Books/{id}")
