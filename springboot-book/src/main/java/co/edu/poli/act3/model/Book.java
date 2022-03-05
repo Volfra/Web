@@ -48,7 +48,7 @@ public class Book{
 	private int year;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="CD_ID")
+	@JoinColumn(name="CD_ID", unique=true)
 	private CD cd;
 	
     @ManyToOne
