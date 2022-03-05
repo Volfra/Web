@@ -26,7 +26,7 @@ public class Auto {
 	private int modelo;
 	
 	@OneToOne
-	@JoinColumn(name="duenio_id")
+	@JoinColumn(name="duenio_id", unique=true)
 	private Duenio duenio;
 	
 	@ManyToOne
