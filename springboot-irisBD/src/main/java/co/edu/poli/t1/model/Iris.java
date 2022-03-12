@@ -1,5 +1,8 @@
 package co.edu.poli.t1.model;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +28,39 @@ public class Iris {
 	private double petal_width;
 	
 	private String species;
+
+	/*
+	{
+        "sepal_length": 5.1,
+        "sepal_width": 3.5,
+        "petal_length": 1.4,
+        "petal_width": 0.2,
+        "species": "setosa",
+         "examples": [
+            "1",
+            "2"
+        ],
+        "example": [
+            "1",
+            "2"
+        ]
+    }
+    */
+	//BLOB in MYSQL JSON Array
+	private String[] examples;
 	
+	//New entity OneToOne JSON Array
+	@ElementCollection
+	private List<String> example;
+	
+	public List<String> getExample() {
+		return example;
+	}
+
+	public void setExample(List<String> example) {
+		this.example = example;
+	}
+
 	public Iris() {
 	}
 
@@ -86,5 +121,16 @@ public class Iris {
 	public void setSpecies(String species) {
 		this.species = species;
 	}
+
+	public String[] getExamples() {
+		return examples;
+	}
+
+	public void setExamples(String[] examples) {
+		this.examples = examples;
+	}
+
+
+
 
 }
