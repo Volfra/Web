@@ -1,0 +1,213 @@
+[
+  {
+    "iso": "AT",
+    "name": {
+      "common": "Austria",
+      "official": "Republic of Austria"
+    },
+    "tld": [
+      ".at"
+    ],
+    "capital": {
+      "name": "Vienna",
+      "population": 2600000,
+      "density": 4326.1
+    },
+    "area": 83871
+  },
+  {
+    "iso": "DK",
+    "name": {
+      "common": "Denmark",
+      "official": "Kingdom of Denmark"
+    },
+    "tld": [
+      ".dk"
+    ],
+    "capital": {
+      "name": "Copenhagen",
+      "population": 1336982,
+      "density": 4500
+    },
+    "area": 43094
+  },
+  {
+    "iso": "FI",
+    "name": {
+      "common": "Finland",
+      "official": "Republic of Finland"
+    },
+    "tld": [
+      ".fi"
+    ],
+    "capital": {
+      "name": "Helsinki",
+      "population": 1268296,
+      "density": 3082.4
+    },
+    "area": 338424
+  },
+  {
+    "iso": "BR",
+    "name": {
+      "common": "Brazil",
+      "official": "Federative Republic of Brazil"
+    },
+    "tld": [
+      ".br"
+    ],
+    "capital": {
+      "name": "Brasilia",
+      "population": 3039444,
+      "density": 480827
+    },
+    "area": 8515767
+  },
+  {
+    "iso": "AR",
+    "name": {
+      "common": "Argentina",
+      "official": "Argentine Republic"
+    },
+    "tld": [
+      ".ar"
+    ],
+    "capital": {
+      "name": "Buenos Aires",
+      "population": 2891082,
+      "density": 15150.96
+    },
+    "area": 2780400
+  },
+  {
+    "iso": "US",
+    "name": {
+      "common": "United States",
+      "official": "United States of America"
+    },
+    "tld": [
+      ".us"
+    ],
+    "capital": {
+      "name": "Washington D.C.",
+      "population": 689545,
+      "density": 4361.45
+    },
+    "area": 9372610
+  },
+  {
+    "iso": "NG",
+    "name": {
+      "common": "Nigeria",
+      "official": "Federal Republic of Nigeria"
+    },
+    "tld": [
+      ".ng"
+    ],
+    "capital": {
+      "name": "Abuya",
+      "population": 979876,
+      "density": 1400
+    },
+    "area": 923768
+  },
+  {
+    "iso": "GH",
+    "name": {
+      "common": "Ghana",
+      "official": "Republic of Ghana"
+    },
+    "tld": [
+      ".gh"
+    ],
+    "capital": {
+      "name": "Accra",
+      "population": 2291352,
+      "density": 1235.8
+    },
+    "area": 238533
+  },
+  {
+    "iso": "RW",
+    "name": {
+      "common": "Rwanda",
+      "official": "Republic of Rwanda"
+    },
+    "tld": [
+      ".rw"
+    ],
+    "capital": {
+      "name": "Kigali",
+      "population": 1132686,
+      "density": 1552
+    },
+    "area": 26338
+  },
+  {
+    "iso": "AU",
+    "name": {
+      "common": "Australia",
+      "official": "Commonwealth of Australia"
+    },
+    "tld": [
+      ".au"
+    ],
+    "capital": {
+      "name": "Canberra",
+      "population": 431380,
+      "density": 503932
+    },
+    "area": 7692024
+  },
+  {
+    "iso": "NZ",
+    "name": {
+      "common": "New Zealand",
+      "official": "New Zealand"
+    },
+    "tld": [
+      ".nz"
+    ],
+    "capital": {
+      "name": "Wellington",
+      "population": 215900,
+      "density": 1900
+    },
+    "area": 270467
+  },
+  {
+    "iso": "SG",
+    "name": {
+      "common": "Singapore",
+      "official": "Republic of Singapore"
+    },
+    "tld": [
+      ".sg",
+      ".新加坡",
+      ".சிங்கப்பூர்"
+    ],
+    "capital": {
+      "name": "Singapore",
+      "population": 5453600,
+      "density": 7804
+    },
+    "area": 710
+  },
+  {
+    "iso": "KR",
+    "name": {
+      "common": "South Korea",
+      "official": "Republic of Korea"
+    },
+    "tld": [
+      ".kr",
+      ".한국"
+    ],
+    "capital": {
+      "name": "Seoul",
+      "population": 9765869,
+      "density": 16000
+    },
+    "area": 100210
+  }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "id": "I",
+        "name": "Europe",
+        "qtyCountries": 50
+    },
+    {
+        "id": "II",
+        "name": "Americas",
+        "qtyCountries": 35
+    },
+    {
+        "id": "III",
+        "name": "Africa",
+        "qtyCountries": 54
+    },
+    {
+        "id": "IV",
+        "name": "Oceania",
+        "qtyCountries": 15
+    },
+    {
+        "id": "V",
+        "name": "Asia",
+        "qtyCountries": 49
+    }
+]
