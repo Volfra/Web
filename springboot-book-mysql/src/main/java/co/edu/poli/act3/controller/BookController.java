@@ -73,7 +73,7 @@ public class BookController {
 	//Query
 	@GetMapping("/bookss/{s}")
 	public List<Book> getfindByAuthor(@PathVariable String s) {
-		return bookRepository.findByAuthor(s);
+		return bookRepository.findByAuthor2(s);
 	}
 
 	
