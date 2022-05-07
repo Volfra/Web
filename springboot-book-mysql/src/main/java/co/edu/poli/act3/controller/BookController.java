@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.poli.act3.model.Book;
 import co.edu.poli.act3.repository.BookRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController // Defines that this class is a spring bean
 @RequestMapping("/api/v1/")
 public class BookController {
