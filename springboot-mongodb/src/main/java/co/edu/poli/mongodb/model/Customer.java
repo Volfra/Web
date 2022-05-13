@@ -13,84 +13,167 @@ public class Customer {
 	//@Id
 	private String customerId;
 	
-	private String firstname;
+	private boolean isActive;
 	
-	private String lastname;
+	private double balance;
 	
-	private Integer age;
+	private int age;
+	
+	private String eyeColor;
+	
+	private String name;
+	
+	private String gender;
+	
+	private String company;
+	
+	private String email;
+	
+	private String phone;
 	
 	private String address;
 	
-	@Field("Salario")
+	@Field("Income")
 	private Double salary;
 	
-	private Map<String, String> mediosPago; 
+	private Map<String, String> cards; 
 	
-	private List<Compras> listaCompras;
+	private List<Shopping> transactions;
 		
 	public Customer() {
 		
 	}
 
-	public Customer(String customerId, String firstname, String lastname, Integer age, String address, Double salary,
-			Map<String, String> mediosPago, List<Compras> listaCompras) {
+	public Customer(String customerId, boolean isActive, double balance, int age, String eyeColor, String name,
+			String gender, String company, String email, String phone, String address, Double salary,
+			Map<String, String> cards, List<Shopping> transactions) {
 		super();
 		this.customerId = customerId;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.isActive = isActive;
+		this.balance = balance;
 		this.age = age;
+		this.eyeColor = eyeColor;
+		this.name = name;
+		this.gender = gender;
+		this.company = company;
+		this.email = email;
+		this.phone = phone;
 		this.address = address;
 		this.salary = salary;
-		this.mediosPago = mediosPago;
-		this.listaCompras = listaCompras;
+		this.cards = cards;
+		this.transactions = transactions;
 	}
 
 	public String getCustomerId() {
 		return customerId;
 	}
-	public void setId(String customerId) {
+
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	public String getFirstname() {
-		return firstname;
+
+	public boolean isActive() {
+		return isActive;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
-	public String getLastname() {
-		return lastname;
+
+	public double getBalance() {
+		return balance;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
-	public Integer getAge() {
+
+	public int getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+
+	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public String getEyeColor() {
+		return eyeColor;
+	}
+
+	public void setEyeColor(String eyeColor) {
+		this.eyeColor = eyeColor;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public Double getSalary() {
 		return salary;
 	}
+
 	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	public List<Compras> getListaCompras() {
-		return listaCompras;
+
+	public Map<String, String> getCards() {
+		return cards;
 	}
-	public void setListaCompras(List<Compras> listaCompras) {
-		this.listaCompras = listaCompras;
+
+	public void setCards(Map<String, String> cards) {
+		this.cards = cards;
 	}
-	public Map<String, String> getMediosPago() {
-		return mediosPago;
+
+	public List<Shopping> getTransactions() {
+		return transactions;
 	}
-	public void setMediosPago(Map<String, String> mediosPago) {
-		this.mediosPago = mediosPago;
+
+	public void setTransactions(List<Shopping> transactions) {
+		this.transactions = transactions;
 	}
+
 }

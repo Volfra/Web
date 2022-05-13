@@ -1,12 +1,13 @@
+
 package co.edu.poli.mongodb.model;
 
 import java.util.Date;
 
-public class Compras {
+public class Shopping {
 
 	private Long id;
 	
-	private Date fecha;
+	private Date date;
 	
 	private Long total;
 
@@ -18,12 +19,12 @@ public class Compras {
 		this.id = id;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public Long getTotal() {

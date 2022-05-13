@@ -54,13 +54,19 @@ public class CustomerController {
 		
 		Customer _customer = customerRepository.findById(id).get();
 		
-		_customer.setFirstname(customer.getFirstname());
-		_customer.setLastname(customer.getLastname());
-		_customer.setAddress(customer.getAddress());
-		_customer.setAge(customer.getAge());
-		_customer.setSalary(customer.getSalary());
-		_customer.setMediosPago(customer.getMediosPago());
-		_customer.setListaCompras(customer.getListaCompras());
+		_customer.setActive(customer.isActive());
+		_customer.setBalance (customer.getBalance());
+		_customer.setAge (customer.getAge());
+		_customer.setEyeColor (customer.getEyeColor());
+		_customer.setName (customer.getName());
+		_customer.setGender (customer.getGender());
+		_customer.setCompany (customer.getCompany());
+		_customer.setEmail (customer.getEmail());
+		_customer.setPhone (customer.getPhone());
+		_customer.setAddress (customer.getAddress());
+		_customer.setSalary (customer.getSalary());
+		_customer.setCards (customer.getCards());
+		_customer.setTransactions (customer.getTransactions());
 		
 		customerRepository.save(_customer);
 		
