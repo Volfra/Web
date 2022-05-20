@@ -21,7 +21,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Override protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	@Override 
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		/* Providers */ 
 		//first case memory users only without encryption
@@ -51,10 +52,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.password("$2a$10$l.Rxc0VECmpHjinzxMG/wunvebywkRtSwIkSk./Th0ip2k6quv92i") //using method passwordEncoder 
 			.roles("ADMIN");
 		
+		auth.inMemoryAuthentication() 
+			.withUser("user5")
+			.password("$2a$10$l.Rxc0VECmpHjinzxMG/wunvebywkRtSwIkSk./Th0ip2k6quv92i") //using method passwordEncoder 
+			.roles("USER");		
   
   }
 
-	@Override protected void configure(HttpSecurity http) throws Exception {
+	@Override 
+	protected void configure(HttpSecurity http) throws Exception {
 		 http.cors()
 		 	.and()
 			.csrf().disable() //Cross-Site Request Forgery (falsificación de petición en sitios cruzados) 
@@ -84,7 +90,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return NoOpPasswordEncoder.getInstance();
 	}
 	*/
-	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
