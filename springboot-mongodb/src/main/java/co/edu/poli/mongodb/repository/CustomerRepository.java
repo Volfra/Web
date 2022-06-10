@@ -9,19 +9,19 @@ import co.edu.poli.mongodb.model.Customer;
 
 public interface CustomerRepository extends MongoRepository<Customer, String>{
 
-	@Query("{ 'name' : /.*?0.*/ }")
-	List<Customer> findCustomersQ1(String name);
+	@Query("{name : /.*?0.*/ }")
+	List<Customer> findCustomers(String name);
 	
-	@Query("{ 'transactions.total' : { $gt: 600, $lt: 2000 } }") 
+	@Query("{balance : { $gt: ?0, $lt: ?1 }}") 
+	List<Customer> findCustomersQ1(double min, double max);
+	
+	@Query("{skills : {job : 'engineer', education : 'phd'}}")
 	List<Customer> findCustomersQ2();
 	
-	@Query("{ cards : {debit : 'visa', credit : 'visa'}}")
+	@Query("{'skills.job' : 'engineer' }")
 	List<Customer> findCustomersQ3();
-	
-	@Query("{ 'cards.debit' : 'master' }")
-	List<Customer> findCustomersQ4();
 
-	@Query(value="{ 'cards.debit' : 'visa' }", fields="{'transactions' : 1, 'cards' : 1, '_id' : 0}")
-	List<Customer> findCustomersQ5();
+	@Query(value="{ 'skills.job' : 'engineer' }", fields="{'transactions' : 1, 'skills' : 1, '_id' : 0}")
+	List<Customer> findCustomersQ4();
 	
 }

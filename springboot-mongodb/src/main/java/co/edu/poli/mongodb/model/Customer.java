@@ -11,15 +11,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Customer {
 	
 	//@Id
-	private String customerId;
+	private String _id;
 	
 	private boolean isActive;
 	
 	private double balance;
 	
 	private int age;
-	
-	private String eyeColor;
 	
 	private String name;
 	
@@ -36,7 +34,7 @@ public class Customer {
 	@Field("Income")
 	private Double salary;
 	
-	private Map<String, String> cards; 
+	private Map<String, String> skills; 
 	
 	private List<Shopping> transactions;
 		
@@ -44,15 +42,14 @@ public class Customer {
 		
 	}
 
-	public Customer(String customerId, boolean isActive, double balance, int age, String eyeColor, String name,
+	public Customer(String customerId, boolean isActive, double balance, int age, String name,
 			String gender, String company, String email, String phone, String address, Double salary,
-			Map<String, String> cards, List<Shopping> transactions) {
+			Map<String, String> skills, List<Shopping> transactions) {
 		super();
-		this.customerId = customerId;
+		this._id = customerId;
 		this.isActive = isActive;
 		this.balance = balance;
 		this.age = age;
-		this.eyeColor = eyeColor;
 		this.name = name;
 		this.gender = gender;
 		this.company = company;
@@ -60,16 +57,16 @@ public class Customer {
 		this.phone = phone;
 		this.address = address;
 		this.salary = salary;
-		this.cards = cards;
+		this.skills = skills;
 		this.transactions = transactions;
 	}
 
-	public String getCustomerId() {
-		return customerId;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
+	public void set_id(String customerId) {
+		this._id = customerId;
 	}
 
 	public boolean isActive() {
@@ -94,14 +91,6 @@ public class Customer {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public String getEyeColor() {
-		return eyeColor;
-	}
-
-	public void setEyeColor(String eyeColor) {
-		this.eyeColor = eyeColor;
 	}
 
 	public String getName() {
@@ -160,12 +149,12 @@ public class Customer {
 		this.salary = salary;
 	}
 
-	public Map<String, String> getCards() {
-		return cards;
+	public Map<String, String> getSkills() {
+		return skills;
 	}
 
-	public void setCards(Map<String, String> cards) {
-		this.cards = cards;
+	public void setSkills(Map<String, String> skills) {
+		this.skills = skills;
 	}
 
 	public List<Shopping> getTransactions() {

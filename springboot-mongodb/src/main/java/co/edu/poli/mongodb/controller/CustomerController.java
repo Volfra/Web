@@ -3,6 +3,7 @@ package co.edu.poli.mongodb.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ApiResponse;
 
+@CrossOrigin(origins = "http://127.0.0.1:4200")
 @Api(tags = {"Class: CustomerController"}) //tag defined in SwaggerConfig.java
 @RestController // Defines that this class is a spring bean
 @RequestMapping("/api/v1/")
@@ -57,7 +59,6 @@ public class CustomerController {
 		_customer.setActive(customer.isActive());
 		_customer.setBalance (customer.getBalance());
 		_customer.setAge (customer.getAge());
-		_customer.setEyeColor (customer.getEyeColor());
 		_customer.setName (customer.getName());
 		_customer.setGender (customer.getGender());
 		_customer.setCompany (customer.getCompany());
@@ -65,7 +66,7 @@ public class CustomerController {
 		_customer.setPhone (customer.getPhone());
 		_customer.setAddress (customer.getAddress());
 		_customer.setSalary (customer.getSalary());
-		_customer.setCards (customer.getCards());
+		_customer.setSkills (customer.getSkills());
 		_customer.setTransactions (customer.getTransactions());
 		
 		customerRepository.save(_customer);
@@ -86,33 +87,33 @@ public class CustomerController {
 	}
 	
 	//Query
-	@GetMapping("/CustomersQ1/{lastname}")
+	@GetMapping("/CustomersQ/{lastname}")
 	public List<Customer> findCustomers1(@PathVariable String lastname){
-		return customerRepository.findCustomersQ1(lastname);
+		return customerRepository.findCustomers(lastname);
 	}
 
 	//Query
+	@GetMapping("/CustomersQ1/{min}/{max}")
+	public List<Customer> findCustomers2(@PathVariable double min, @PathVariable double max){
+		return customerRepository.findCustomersQ1(min, max);
+	}
+	
+	//Query
 	@GetMapping("/CustomersQ2")
-	public List<Customer> findCustomers2(){
+	public List<Customer> findCustomers3(){
 		return customerRepository.findCustomersQ2();
 	}
 	
 	//Query
 	@GetMapping("/CustomersQ3")
-	public List<Customer> findCustomers3(){
-		return customerRepository.findCustomersQ3();
-	}
-	
-	//Query
-	@GetMapping("/CustomersQ4")
 	public List<Customer> findCustomers4(){
-		return customerRepository.findCustomersQ4();
+		return customerRepository.findCustomersQ3();
 	}
 
 	//Query
-	@GetMapping("/CustomersQ5")
+	@GetMapping("/CustomersQ4")
 	public List<Customer> findCustomers5(){
-		return customerRepository.findCustomersQ5();
+		return customerRepository.findCustomersQ4();
 	}
 	
 }

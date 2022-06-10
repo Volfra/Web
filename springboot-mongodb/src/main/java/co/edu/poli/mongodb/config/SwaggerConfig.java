@@ -32,9 +32,9 @@ public class SwaggerConfig {
 
 	private ApiInfo mongoCustomerApiInfo() {
 		return new ApiInfoBuilder()
-				.title("My Spring Boot REST API")
-				.description("Customer REST API")
-				.contact(new Contact("Web App Mongo", "", "wsoto@poligran.edu.co"))
+				.title("Customers")
+				.description("Customers REST API Spring Boot and Mongo")
+				.contact(new Contact("Wilson Soto", "", "wsoto@poligran.edu.co"))
 				.version("0.0.1")
 				.build();
 	}
