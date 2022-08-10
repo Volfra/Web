@@ -29,7 +29,7 @@ public class AutoController {
 
 	@GetMapping("/autos/{idAuto}")
 	public Auto getAuto (@PathVariable int idAuto) {
-		Auto a = autoRepository.getById(idAuto);
+		Auto a = autoRepository.findById(idAuto).get();
 		return a;
 	}
 	
@@ -48,7 +48,7 @@ public class AutoController {
 	@PutMapping("/auto/{idAuto}")
 	public Auto putAuto(@PathVariable int idAuto, @RequestBody Auto auto){
 		
-		Auto a = autoRepository.getById(idAuto);
+		Auto a = getAuto(idAuto);
 		
 		a.setMarca(auto.getMarca());
 		a.setModelo(auto.getModelo());
@@ -61,7 +61,7 @@ public class AutoController {
 	
 	@DeleteMapping("/auto/{idAuto}")
 	public Auto delAuto(@PathVariable int idAuto){
-		Auto a = autoRepository.getById(idAuto);
+		Auto a = getAuto(idAuto);
 		autoRepository.deleteById(idAuto);
 		return a;
 	}
