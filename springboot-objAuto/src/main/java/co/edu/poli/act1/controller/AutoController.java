@@ -1,8 +1,8 @@
 package co.edu.poli.act1.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,49 +13,67 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.act1.model.Auto;
+import co.edu.poli.act1.repository.AutoRepository;
 
 @RestController
 @RequestMapping("/api/v1")
 public class AutoController {
 
-	List<Auto> autos;
-	
-	public AutoController() {
-		autos = new ArrayList<Auto>();
-	}
+	@Autowired
+	private AutoRepository autoRepository;
 	
 	@GetMapping("/auto")
 	public List<Auto> getAutos () {
-		return autos;
+		return autoRepository.findAll();
 	}
 
 	@GetMapping("/autos/{idAuto}")
 	public Auto getAuto (@PathVariable int idAuto) {
-		Auto a = autos.get(idAuto);
+		Auto a = autoRepository.findById(idAuto).get();
 		return a;
 	}
 	
 	@PostMapping("/auto")
 	public Auto saveAuto (@RequestBody Auto auto) {
-		autos.add(auto);	
+		autoRepository.save(auto);	
 		return auto;
 	}
 	
 	@PostMapping("/autos")
 	public String saveAutos (@RequestBody List<Auto> autosList) {
-				autos.addAll(autosList);	
-				return "done";
+		autoRepository.saveAll(autosList);	
+		return "done";
 	}
 	
 	@PutMapping("/auto/{idAuto}")
 	public Auto putAuto(@PathVariable int idAuto, @RequestBody Auto auto){
-		autos.set(idAuto, auto);
-		return auto;
+		
+		Auto a = getAuto(idAuto);
+		
+		a.setMarca(auto.getMarca());
+		a.setModelo(auto.getModelo());
+		a.setColor(auto.getColor());
+		a.setPlaca(auto.getPlaca());
+		
+		autoRepository.save(a);
+		return a;
 	}
 	
 	@DeleteMapping("/auto/{idAuto}")
 	public Auto delAuto(@PathVariable int idAuto){
-		return autos.remove(idAuto);
+		Auto a = getAuto(idAuto);
+		autoRepository.deleteById(idAuto);
+		return a;
 	}
 	
+	@GetMapping("/autoq1/{s}/{i}")
+	public List<Auto> getAutosQuery1 (@PathVariable String s, @PathVariable int i) {
+		return autoRepository.filterMarca1(s,i);
+	}
+
+	@GetMapping("/autoq2/{s}/{i}")
+	public List<Auto> getAutosQuery2 (@PathVariable int i) {
+		return autoRepository.filterMarca2(i);
+	}
+		
 }
