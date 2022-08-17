@@ -14,7 +14,7 @@ public interface AutoRepository extends JpaRepository<Auto, Integer>{
 	List<Auto> filterMarca1 (String s, int m);
 	
 	//SQL
-	@Query (value="SELECT marca, placa FROM concesionario WHERE modelo > ?1",nativeQuery = true)
+	@Query (value="SELECT * FROM concesionario WHERE modelo > ?1",nativeQuery = true)
 	List<Auto> filterMarca2 (int m);
 	
 }

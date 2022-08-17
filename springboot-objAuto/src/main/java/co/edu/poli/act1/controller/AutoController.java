@@ -71,7 +71,7 @@ public class AutoController {
 		return autoRepository.filterMarca1(s,i);
 	}
 
-	@GetMapping("/autoq2/{s}/{i}")
+	@GetMapping("/autoq2/{i}")
 	public List<Auto> getAutosQuery2 (@PathVariable int i) {
 		return autoRepository.filterMarca2(i);
 	}
