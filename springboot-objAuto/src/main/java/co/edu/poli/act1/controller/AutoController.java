@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.act1.model.Auto;
+import co.edu.poli.act1.model.GroupQuery;
+import co.edu.poli.act1.model.IGroupQuery;
 import co.edu.poli.act1.repository.AutoRepository;
 
 @RestController
@@ -75,5 +77,15 @@ public class AutoController {
 	public List<Auto> getAutosQuery2 (@PathVariable int i) {
 		return autoRepository.filterMarca2(i);
 	}
-		
+
+	@GetMapping("/autoq3")
+	public List<GroupQuery> getAutosQuery3 () {
+		return autoRepository.groupModelo1();
+	}
+
+	@GetMapping("/autoq4")
+	public List<IGroupQuery> getAutosQuery4 () {
+		return autoRepository.groupModelo2();
+	}
+
 }
