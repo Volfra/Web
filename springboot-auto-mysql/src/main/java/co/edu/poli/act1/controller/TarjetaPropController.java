@@ -39,7 +39,7 @@ public class TarjetaPropController {
 
 	@GetMapping("/tarjetas/{idTarjeta}")
 	public TarjetaProp getTarjetaProp (@PathVariable String idTarjeta) {
-		TarjetaProp a = tarjetaPropRepository.getById(idTarjeta);
+		TarjetaProp a = tarjetaPropRepository.findById(idTarjeta).get();
 		return a;
 	}
 	
@@ -58,7 +58,7 @@ public class TarjetaPropController {
 	@PutMapping("/tarjeta/{idTarjeta}")
 	public TarjetaProp putTarjetaProp(@PathVariable String idTarjeta, @RequestBody TarjetaProp tarjetaProp){
 		
-		TarjetaProp a = tarjetaPropRepository.getById(idTarjeta);
+		TarjetaProp a = tarjetaPropRepository.findById(idTarjeta).get();
 		
 		a.setFecha(tarjetaProp.getFecha());
 		a.setCiudad(tarjetaProp.getCiudad());
@@ -70,7 +70,7 @@ public class TarjetaPropController {
 	
 	@DeleteMapping("/tarjeta/{idTarjeta}")
 	public TarjetaProp delTarjetaProp(@PathVariable String idTarjeta){
-		TarjetaProp a = tarjetaPropRepository.getById(idTarjeta);
+		TarjetaProp a = tarjetaPropRepository.findById(idTarjeta).get();
 		tarjetaPropRepository.deleteById(idTarjeta);
 		return a;
 	}

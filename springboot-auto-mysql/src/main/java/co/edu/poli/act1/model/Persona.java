@@ -19,7 +19,7 @@ public class Persona {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="persona",cascade=CascadeType.ALL)
 	@JsonIgnore
 	private Set<TarjetaProp> tarjetaProp;
 	

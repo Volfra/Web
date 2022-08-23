@@ -23,7 +23,7 @@ public class Auto {
 	private int modelo;
 	private String color;
 	
-	@OneToOne(mappedBy = "auto", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "auto")
 	@JsonIgnore
 	private TarjetaProp tarjetaProp;
 	

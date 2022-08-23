@@ -29,7 +29,7 @@ public class PersonaController {
 
 	@GetMapping("/personas/{idPersona}")
 	public Persona getPersona(@PathVariable String idPersona) {
-		Persona a = personaRepository.getById(idPersona);
+		Persona a = personaRepository.findById(idPersona).get();
 		return a;
 	}
 
@@ -48,7 +48,7 @@ public class PersonaController {
 	@PutMapping("/persona/{idPersona}")
 	public Persona putPersona(@PathVariable String idPersona, @RequestBody Persona persona) {
 
-		Persona a = personaRepository.getById(idPersona);
+		Persona a = personaRepository.findById(idPersona).get();
 
 		a.setNombre(persona.getNombre());
 
@@ -58,7 +58,7 @@ public class PersonaController {
 
 	@DeleteMapping("/persona/{idPersona}")
 	public Persona delPersona(@PathVariable String idPersona) {
-		Persona a = personaRepository.getById(idPersona);
+		Persona a = personaRepository.findById(idPersona).get();
 		personaRepository.deleteById(idPersona);
 		return a;
 	}
