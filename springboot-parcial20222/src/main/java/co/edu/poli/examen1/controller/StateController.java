@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.examen1.model.IState;
 import co.edu.poli.examen1.model.State;
+import co.edu.poli.examen1.repository.IGov;
 import co.edu.poli.examen1.repository.StateRepository;
 
 @RestController
@@ -40,6 +41,16 @@ public class StateController {
 	@GetMapping("/q2")
 	public List<IState> queryGroup () {
 		return stateRepository.query2();
+	}
+
+	@GetMapping("/q3/{a}/{b}")
+	public List<State> queryRange (@PathVariable long a, @PathVariable long b) {
+		return stateRepository.query3(a, b);
+	}
+
+	@GetMapping("/q4/{capital}")
+	public List<IGov> queryGovernor (@PathVariable String capital) {
+		return stateRepository.query4(capital);
 	}
 
 }

@@ -17,4 +17,13 @@ public interface StateRepository extends JpaRepository<State, String> {
 			+ " from estados as e group by e.facebook_url",nativeQuery = true)
 	List<IState> query2 ();
 	
+	@Query ("FROM State WHERE population BETWEEN ?1 AND ?2")
+	List<State> query3 (long min, long max);
+
+	@Query (value="select state as est, nombre as gov "
+			+ "from estados e, gobernadores g "
+			+ "where e.code = g.state_id "
+			+ "and e.capital_city = ?1",nativeQuery = true)
+	List<IGov> query4 (String cap);
+	
 }
