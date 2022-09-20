@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.poli.act1.model.TarjetaProp;
 import co.edu.poli.act1.repository.TarjetaPropRepository;
 import co.edu.poli.act1.model.Auto;
+import co.edu.poli.act1.model.GroupQuery;
+import co.edu.poli.act1.model.GroupQueryByAuto;
 import co.edu.poli.act1.repository.AutoRepository;
 
 @RestController
@@ -80,6 +82,11 @@ public class TarjetaPropController {
 				
 		tarjetaPropRepository.save(tarjetaProp);
 		return tarjetaProp;
+	}
+	
+	@GetMapping("/tarjetaq5")
+	public List<GroupQueryByAuto> getTarjetasQuery5 () {
+		return tarjetaPropRepository.groupModelo3();
 	}
 
 
