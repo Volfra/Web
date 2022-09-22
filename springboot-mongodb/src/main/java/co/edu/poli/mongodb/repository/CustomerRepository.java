@@ -15,7 +15,7 @@ public interface CustomerRepository extends MongoRepository<Customer, String>{
 	@Query("{balance : { $gt: ?0, $lt: ?1 }}") 
 	List<Customer> findCustomersQ1(double min, double max);
 	
-	@Query("{'skills.job': 'engineer', 'skills.education': 'phd' }")
+	@Query("{skills:  {job: 'engineer', education: 'phd', languages: 'korean'}}")
 	List<Customer> findCustomersQ2();
 	
 	@Query("{'skills.job' : 'engineer' }")
