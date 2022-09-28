@@ -115,5 +115,11 @@ public class CustomerController {
 	public List<Customer> findCustomers5(){
 		return customerRepository.findCustomersQ4();
 	}
-	
+
+	//Query
+	@GetMapping("/CustomersQ5")
+	public List<Customer> findCustomers6(){
+		return customerRepository.findCustomersQ5();
+	}
+
 }
